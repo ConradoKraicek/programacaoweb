@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+	  xmlns:jsf="http://xmlns.jcp.org/jsf">
+<head>
+<meta charset="UTF-8"></meta>
+<title>Insert title here</title>
+</head>
+
+<h:body>
+
+	<h:form>
+
+		<div>
+			<h:outputLabel>Titulo</h:outputLabel>
+			<h:inputText value="#{adminLivroBean.produto.titulo}" />
+		</div>
+
+		<div>
+			<h:outputLabel>Descrição</h:outputLabel>
+			<h:inputTextarea cols="20" rows="10"
+				value="#{adminLivroBean.produto.descricao}" />
+		</div>
+
+		<div>
+			<h:outputLabel>Número de páginas</h:outputLabel>
+			<h:inputText value="#{adminLivroBean.produto.numeroDePaginas}" />
+		</div>
+
+		<div>
+			<h:outputLabel>Preço</h:outputLabel>
+			<h:inputText value="#{adminLivroBean.produto.preco}" />
+		</div>
+
+		<div>
+			<h:outputLabel>Autores</h:outputLabel>
+			<h:selectManyListbox value="#{adminLivroBean.selectedAutoresIds}" converter="javax.faces.Integer">
+				<f:selectItems value="#{adminLivroBean.autores}" var="autor"
+					itemLabel="#{autor.name}" itemValue="#{autor.id}" />
+			</h:selectManyListbox>
+		</div>
+
+
+		<h:commandButton value=" Gravar" action="#{adminLivroBean.save}" />
+
+	</h:form>
+</h:body>
+</html>
